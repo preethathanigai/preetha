@@ -1,0 +1,29 @@
+<script src="https://unpkg.com/spacetime"></script>
+<script>
+  var d = spacetime('March 1 2012', 'America/New_York')
+  //set the time
+  d.time('4:20pm')
+
+  d.goto('America/Los_Angeles')
+  d.time()//'1:20pm'
+</script>
+const spacetime = require('spacetime')
+let d = spacetime.now('Europe/Paris')
+d.dayName()
+//'Wednesday'
+d.isAsleep()
+//true
+const ImmutableSpacetime = require('spacetime/immutable')
+const day0 = new ImmutableSpacetime([2018, 0, 1])
+
+day0.format('nice') // January 1st
+day0.add(3, 'days').format('nice') // January 4th
+day0.format('nice') // January 1st!
+let d = spacetime([2018, 11, 5])
+// Go to the America/New_York timezone at the same moment
+d.goto('America/New_York');
+// List of timezones between 8:30am and 10:30am
+spacetime.whereIts('8:30am', '10:30am')
+
+// List of timezones within this hour
+spacetime.whereIts('9am')
